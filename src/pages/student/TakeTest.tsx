@@ -300,13 +300,12 @@ export const TakeTest = ({
             </div>
             <div className="flex items-center gap-6">
               <div
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium ${
-                  timeRemaining < 300
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium ${timeRemaining < 300
                     ? 'bg-red-100 text-red-700'
                     : timeRemaining < 600
-                    ? 'bg-orange-100 text-orange-700'
-                    : 'bg-blue-100 text-blue-700'
-                }`}
+                      ? 'bg-orange-100 text-orange-700'
+                      : 'bg-blue-100 text-blue-700'
+                  }`}
               >
                 <Clock className="w-5 h-5" />
                 {formatTime(timeRemaining)}
@@ -342,7 +341,9 @@ export const TakeTest = ({
                 {currentQuestion + 1}
               </span>
               <div className="flex-1">
-                <p className="text-lg text-slate-900 leading-relaxed">{currentQ.question_text}</p>
+                <pre className="text-lg text-slate-900 whitespace-pre-wrap font-mono bg-slate-100 p-4 rounded-lg overflow-x-auto">
+                  {currentQ.question_text}
+                </pre>
                 <div className="flex items-center gap-4 mt-2">
                   <span className="text-sm text-slate-600">Marks: {currentQ.marks}</span>
                   {isMultiple && (
@@ -361,11 +362,10 @@ export const TakeTest = ({
               return (
                 <label
                   key={option.id}
-                  className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                    isSelected
+                  className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${isSelected
                       ? 'border-blue-600 bg-blue-50'
                       : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   <input
                     type={isMultiple ? 'checkbox' : 'radio'}
@@ -396,13 +396,12 @@ export const TakeTest = ({
               <button
                 key={idx}
                 onClick={() => setCurrentQuestion(idx)}
-                className={`w-10 h-10 rounded-lg font-medium transition-colors ${
-                  idx === currentQuestion
+                className={`w-10 h-10 rounded-lg font-medium transition-colors ${idx === currentQuestion
                     ? 'bg-blue-600 text-white'
                     : answers.has(questions[idx].id)
-                    ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
+                      ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
               >
                 {idx + 1}
               </button>
